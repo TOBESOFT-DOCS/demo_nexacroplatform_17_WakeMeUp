@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="Combo_File" width="1280" height="720" titletext="New Form">
+    <Layouts>
+      <Layout height="720" mobileorientation="landscape" width="1280">
+        <Combo id="Combo00" taborder="0" text="" left="32" top="61" width="244" height="45" innerdataset="Dataset00" codecolumn="code" datacolumn="data" index="0" value=""/>
+        <Combo id="Combo01" taborder="1" text="전체" left="296" top="61" width="244" height="45" innerdataset="Dataset01" codecolumn="Code" datacolumn="Data" index="0" value="" oncloseup="Combo01_oncloseup" ondropdown="Combo01_ondropdown"/>
+        <Combo id="Combo02" taborder="2" text="전체" left="566" top="61" width="244" height="45" innerdataset="Dataset02" codecolumn="Code" datacolumn="Data" index="0" value="" ondropdown="Combo02_ondropdown"/>
+        <Grid id="Grid00" taborder="3" left="30" top="126" width="249" height="237" binddataset="Dataset00">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row band="head" size="24"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="code"/>
+                <Cell col="1" text="data"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:code"/>
+                <Cell col="1" text="bind:data"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid01" taborder="4" left="296" top="123" width="249" height="237" binddataset="Dataset01">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row band="head" size="24"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Code"/>
+                <Cell col="1" text="Data"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Code"/>
+                <Cell col="1" text="bind:Data"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid02" taborder="5" left="571" top="126" width="239" height="257" binddataset="Dataset02" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row band="head" size="24"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="Column0"/>
+                <Cell col="1" text="Data"/>
+                <Cell col="2" text="Code"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0"/>
+                <Cell col="1" text="bind:Data"/>
+                <Cell col="2" text="bind:Code"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Dataset00">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="data">전체</Col>
+          </Row>
+          <Row>
+            <Col id="code">A</Col>
+            <Col id="data">아시아</Col>
+          </Row>
+          <Row>
+            <Col id="code">B</Col>
+            <Col id="data">유럽</Col>
+          </Row>
+          <Row>
+            <Col id="code">C</Col>
+            <Col id="data">아메리카</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset01">
+        <ColumnInfo>
+          <Column id="Code" type="STRING" size="256"/>
+          <Column id="Data" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Data">전체</Col>
+          </Row>
+          <Row>
+            <Col id="Code">A_01</Col>
+            <Col id="Data">한국</Col>
+          </Row>
+          <Row>
+            <Col id="Code">A_02</Col>
+            <Col id="Data">일본</Col>
+          </Row>
+          <Row>
+            <Col id="Code">A_03</Col>
+            <Col id="Data">중국</Col>
+          </Row>
+          <Row>
+            <Col id="Code">B_01</Col>
+            <Col id="Data">독일</Col>
+          </Row>
+          <Row>
+            <Col id="Code">B_02</Col>
+            <Col id="Data">영국</Col>
+          </Row>
+          <Row>
+            <Col id="Code">B_03</Col>
+            <Col id="Data">스페인</Col>
+          </Row>
+          <Row>
+            <Col id="Code">C_01</Col>
+            <Col id="Data">미국</Col>
+          </Row>
+          <Row>
+            <Col id="Code">C_02</Col>
+            <Col id="Data">캐나다</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset02">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Data" type="STRING" size="256"/>
+          <Column id="Code" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Data">전체</Col>
+          </Row>
+          <Row>
+            <Col id="Data">서울 </Col>
+            <Col id="Column0">A_01</Col>
+            <Col id="Code">01</Col>
+          </Row>
+          <Row>
+            <Col id="Data">부산</Col>
+            <Col id="Column0">A_01</Col>
+            <Col id="Code">02</Col>
+          </Row>
+          <Row>
+            <Col id="Data">대전</Col>
+            <Col id="Column0">A_01</Col>
+            <Col id="Code">03</Col>
+          </Row>
+          <Row>
+            <Col id="Data">대구</Col>
+            <Col id="Column0">A_01</Col>
+            <Col id="Code">04</Col>
+          </Row>
+          <Row>
+            <Col id="Data">도쿄</Col>
+            <Col id="Column0">A_02</Col>
+            <Col id="Code">05</Col>
+          </Row>
+          <Row>
+            <Col id="Data">교토</Col>
+            <Col id="Column0">A_02</Col>
+            <Col id="Code">06</Col>
+          </Row>
+          <Row>
+            <Col id="Data">오사카</Col>
+            <Col id="Column0">A_02</Col>
+            <Col id="Code">07</Col>
+          </Row>
+          <Row>
+            <Col id="Data">삿포르</Col>
+            <Col id="Column0">A_02</Col>
+            <Col id="Code">08</Col>
+          </Row>
+          <Row>
+            <Col id="Data">베이징</Col>
+            <Col id="Column0">A_03</Col>
+            <Col id="Code">09</Col>
+          </Row>
+          <Row>
+            <Col id="Data">베를린</Col>
+            <Col id="Column0">B_01</Col>
+            <Col id="Code">10</Col>
+          </Row>
+          <Row>
+            <Col id="Data">런던</Col>
+            <Col id="Column0">B_02</Col>
+            <Col id="Code">11</Col>
+          </Row>
+          <Row>
+            <Col id="Data">맨체스터</Col>
+            <Col id="Column0">B_02</Col>
+            <Col id="Code">12</Col>
+          </Row>
+          <Row>
+            <Col id="Data">마드리드</Col>
+            <Col id="Column0">B_03</Col>
+            <Col id="Code">13</Col>
+          </Row>
+          <Row>
+            <Col id="Data">발렌시아</Col>
+            <Col id="Column0">B_03</Col>
+            <Col id="Code">14</Col>
+          </Row>
+          <Row>
+            <Col id="Data">그라나다</Col>
+            <Col id="Column0">B_03</Col>
+            <Col id="Code">15</Col>
+          </Row>
+          <Row>
+            <Col id="Data">세비아</Col>
+            <Col id="Column0">B_03</Col>
+            <Col id="Code">16</Col>
+          </Row>
+          <Row>
+            <Col id="Data">뉴욕</Col>
+            <Col id="Column0">C_01</Col>
+            <Col id="Code">17</Col>
+          </Row>
+          <Row>
+            <Col id="Data">토론토</Col>
+            <Col id="Column0">C_01</Col>
+            <Col id="Code">18</Col>
+          </Row>
+          <Row>
+            <Col id="Data">워싱턴</Col>
+            <Col id="Column0">C_01</Col>
+            <Col id="Code">19</Col>
+          </Row>
+          <Row>
+            <Col id="Data">시카고</Col>
+            <Col id="Column0">C_01</Col>
+            <Col id="Code">20</Col>
+          </Row>
+          <Row>
+            <Col id="Data">하와이</Col>
+            <Col id="Column0">C_01</Col>
+            <Col id="Code">21</Col>
+          </Row>
+          <Row>
+            <Col id="Data">LA</Col>
+            <Col id="Column0">C_01</Col>
+            <Col id="Code">22</Col>
+          </Row>
+          <Row>
+            <Col id="Data">캘거리</Col>
+            <Col id="Column0">C_02</Col>
+            <Col id="Code">23</Col>
+          </Row>
+          <Row>
+            <Col id="Data">오타와</Col>
+            <Col id="Column0">C_02</Col>
+            <Col id="Code">24</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+this.Combo01_ondropdown = function(obj:nexacro.Combo,e:nexacro.EventInfo)
+{
+	var strFile = this.Combo00.value;
+	this.Dataset01.filter("Code.indexOf('"+strFile+"')>=0");
+};
+
+this.Combo02_ondropdown = function(obj:nexacro.Combo,e:nexacro.EventInfo)
+{
+	var strFile = this.Combo01.value;
+	trace(strFile);
+	this.Dataset02.filter("Column0.indexOf('"+strFile+"')>=0");
+};
+]]></Script>
+  </Form>
+</FDL>

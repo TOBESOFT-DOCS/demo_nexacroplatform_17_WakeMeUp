@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="test_20190401" width="1015" height="677" titletext="New Form" onload="test_20190401_onload">
+    <Layouts>
+      <Layout height="677" mobileorientation="landscape" width="1015">
+        <Grid id="Grid00" taborder="0" left="30" top="85" width="501" height="319" binddataset="ds_list">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="110"/>
+                <Column size="110"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="30"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="ds_code"/>
+                <Cell col="1" text="ds_code2"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:Column0" displaytype="combotext" combodataset="ds_code" combocodecol="CD_ID" combodatacol="CD_NM"/>
+                <Cell col="1" text="bind:Column1" displaytype="combotext" combodataset="ds_code2" combocodecol="CD_ID" combodatacol="CD_NM"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button00" taborder="1" text="addrow" left="558" top="14" width="120" height="50" onclick="Button00_onclick"/>
+        <Combo id="Combo00" taborder="2" text="Combo00" left="558" top="93" width="162" height="29" innerdataset="ds_code" codecolumn="CD_ID" datacolumn="CD_NM"/>
+        <Combo id="Combo01" taborder="3" text="Combo00" left="558" top="151" width="162" height="29" innerdataset="ds_code2" codecolumn="CD_ID" datacolumn="CD_NM"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_list">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_code">
+        <ColumnInfo>
+          <Column id="CD_GRP_ID" type="STRING" size="256"/>
+          <Column id="CD_ID" type="STRING" size="256"/>
+          <Column id="CD_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_code_svr">
+        <ColumnInfo>
+          <Column id="CD_GRP_ID" type="STRING" size="256"/>
+          <Column id="CD_ID" type="STRING" size="256"/>
+          <Column id="CD_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CD_ID">A</Col>
+            <Col id="CD_NM">A</Col>
+          </Row>
+          <Row>
+            <Col id="CD_ID">B</Col>
+            <Col id="CD_NM">B</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_code2">
+        <ColumnInfo>
+          <Column id="CD_GRP_ID" type="STRING" size="256"/>
+          <Column id="CD_ID" type="STRING" size="256"/>
+          <Column id="CD_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="CD_NM">선택안함</Col>
+          </Row>
+          <Row>
+            <Col id="CD_ID">A</Col>
+            <Col id="CD_NM">A</Col>
+          </Row>
+          <Row>
+            <Col id="CD_ID">B</Col>
+            <Col id="CD_NM">B</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.ds_list.addRow();
+};
+
+this.test_20190401_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.ds_code.copyData(this.ds_code_svr);
+	this.ds_code.insertRow(0);
+	this.ds_code.setColumn(0,"CD_NM","선택안함");
+	
+	//this.Combo00.set_index(0);
+	
+};
+]]></Script>
+    <Bind>
+      <BindItem id="item0" compid="Combo00" propid="value" datasetid="ds_list" columnid="Column0"/>
+      <BindItem id="item1" compid="Combo01" propid="value" datasetid="ds_list" columnid="Column1"/>
+    </Bind>
+  </Form>
+</FDL>

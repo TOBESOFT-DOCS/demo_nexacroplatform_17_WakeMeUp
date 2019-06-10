@@ -1,0 +1,10 @@
+{
+    "name": "ComPlugin",
+    "version": "1.0.0.0",
+    "description": "ExtComPlugin for nexacro platform"
+    "license": "",
+    "scripts": [
+        "ExtComPlugin/ExtComPlugin.js"
+    ]
+}
+//@ sourceURL=ExtComPlugin.json

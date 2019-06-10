@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ADL version="2.0">
+  <Application id="App_Tablet" screenid="Tablet_screen">
+    <Layout>
+      <MainFrame id="mainframe" showtitlebar="true" showstatusbar="true" width="800" height="1280">
+        <ChildFrame id="ChildFrame00" formurl="FrameBase::Form_Work.xfdl" showtitlebar="false"/>
+      </MainFrame>
+    </Layout>
+  </Application>
+</ADL>

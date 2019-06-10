@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="form" width="1280" height="600" onload="form_onload" titletext="테스트">
+    <Layouts>
+      <Layout height="600" width="1280" stepcount="0">
+        <Button id="btn_1" taborder="0" left="15" top="10" width="85" height="28" meta_id="" onclick="btn_1_onclick" text="TEST"/>
+        <Div id="divPtlet01" taborder="1" left="13" top="64" height="236" width="48.52%" border="1px solid red"/>
+        <Div id="divPtlet02" taborder="2" left="divPtlet01:12" top="64" height="236" right="13" border="1px solid red"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[//include "lib::lib_Form.xjs"
+
+/************************************************************************************************
+ * 1.화면 onload(필수)
+ ************************************************************************************************/
+this.form_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	//this.gfn_formOnLoad(obj); // 필수
+	
+	this.divPtlet01.set_url("Base::RP_84393_Combo_Filter.xfdl");
+	
+	//버그로 resize처리함
+// 	this.divPtlet01.resize("1%", "1px");
+// 	this.divPtlet01.resize("48.52%", "236px");
+	
+	this.divPtlet02.set_url("Base::Combo_Filter.xfdl");
+	
+	//버그로 resize처리함
+// 	this.divPtlet02.resize("1%", "1px");
+// 	this.divPtlet02.resize("48.52%", "236px");	
+
+};
+
+]]></Script>
+    <Objects/>
+  </Form>
+</FDL>
