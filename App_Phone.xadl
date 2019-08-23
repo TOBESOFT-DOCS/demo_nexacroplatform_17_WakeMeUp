@@ -3,7 +3,7 @@
   <Application id="App_Phone" screenid="Phone_screen,Screen0,Screen1" onnotification="Application_onnotification">
     <Layout>
       <MainFrame id="mainframe" showtitlebar="false" showstatusbar="false" width="480" height="768" titletext="FullFrame">
-        <ChildFrame id="WorkFrame" showtitlebar="false" showstatusbar="false" formurl="Alarm::AlarmSet.xfdl"/>
+        <ChildFrame id="WorkFrame" showtitlebar="false" showstatusbar="false" formurl="Base::AlarmSet.xfdl"/>
       </MainFrame>
       <Tray id="Tray0"/>
     </Layout>
