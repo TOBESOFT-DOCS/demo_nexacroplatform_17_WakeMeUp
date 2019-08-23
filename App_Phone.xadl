@@ -1,17 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ADL version="2.0">
-  <Application id="App_Phone" screenid="Phone_screen,Screen0,Screen1">
+  <Application id="App_Phone" screenid="Phone_screen,Screen0,Screen1" onnotification="Application_onnotification">
     <Layout>
       <MainFrame id="mainframe" showtitlebar="false" showstatusbar="false" width="480" height="768" titletext="FullFrame">
-        <ChildFrame id="WorkFrame" showtitlebar="false" showstatusbar="false" formurl="FrameBase::SetAlarm.xfdl"/>
+        <ChildFrame id="WorkFrame" showtitlebar="false" showstatusbar="false" formurl="Alarm::AlarmSet.xfdl"/>
       </MainFrame>
       <Tray id="Tray0"/>
     </Layout>
   </Application>
-  <Script type="xscript5.1"><![CDATA[this.fn_test = function(arg)
+  <Script type="xscript5.1"><![CDATA[this.fn_callScript = function(arg)
 {
-	trace("[testAlarm]: arg="+ arg);
+	switch(arg)
+	{
+		case "ALARMON":
+			alert("[fn_callScript] ALARMON");
+			
+			//nexacro.getApplication().this.mainframe.WorkFrame.form.함수();
+			
+			//show activity
+			/*
+			var strParams = "ACTIVITYSHOW";
 	
-	alert("[testAlarm]: arg="+ arg);
-};]]></Script>
+			var objEnv = nexacro.getEnvironment();
+			objEnv.userNotify(901, strParams);
+			*/
+			
+			break;
+			
+		case "ALARMCALCEL":
+			alert("[fn_callScript] ALARMCANCEL");
+			break;
+			
+		case "ALARMOFF":
+			alert("[fn_callScript] ALARMOFF");
+			break;
+			
+		case "ALARMCHECK":
+			alert("[fn_callScript] ALARMCHECK");
+			break;			
+			
+		default:
+			alert("[fn_callScript] "+ arg);
+	
+	}
+
+}
+
+]]></Script>
 </ADL>

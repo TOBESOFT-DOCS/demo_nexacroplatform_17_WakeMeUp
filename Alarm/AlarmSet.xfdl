@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.0">
+  <Form id="AlarmSet" width="480" height="768" titletext="New Form" onload="SetAlarm_onload" ondevicebuttonup="SetAlarm_ondevicebuttonup">
+    <Layouts>
+      <Layout height="768" mobileorientation="portrait" screenid="Phone_screen" width="480">
+        <Spin id="spn_hour" taborder="0" left="80" top="420" width="160" height="80" onchanged="spn_hour_onchanged" max="23" min="1" value="12" circulation="true" buttonsize="60" font="normal 32pt/normal &quot;Arial&quot;" type="normal"/>
+        <Spin id="spn_min" taborder="1" left="310" top="420" width="160" height="80" min="0" max="59" value="12" circulation="true" buttonsize="60" font="normal 32pt/normal &quot;Arial&quot;" type="normal"/>
+        <Calendar id="Calendar00" taborder="2" left="10" top="90" width="460" height="320" popuptype="center" usetrailingday="true" type="monthonly" showmonthspin="true" showyearspin="true" font="normal 18pt/normal &quot;Arial&quot;"/>
+        <Static id="stt_hour" taborder="3" text="Hour" left="10" top="430" width="120" height="60" font="normal 20pt/normal &quot;Arial&quot;"/>
+        <Static id="stt_min" taborder="4" text="Min" left="260" top="430" width="120" height="60" font="normal 20pt/normal &quot;Arial&quot;"/>
+        <Button id="btn_setAlarm" taborder="5" text="Alarm Setting" left="0" top="520" height="60" onclick="btn_setAlarm_onclick" wordWrap="english" font="normal bold 14pt/normal &quot;Arial&quot;" width="480"/>
+        <Div id="div_top" taborder="6" left="0" top="0" width="100.00%" height="80" background="#58595B" border="0px" text="">
+          <Layouts>
+            <Layout>
+              <Static id="stt_subject" taborder="1" left="0" height="100%" color="#f2f2f2" font="normal 700 20pt/normal &quot;Arial&quot;" background="" wordWrap="english" top="0" text="Wake me up before I'm late" padding="0px 0px 0px 10px" width="100%"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_offAlarm" taborder="7" text="Alarm OFF" left="0" top="580" height="60" wordWrap="english" onclick="btn_offAlarm_onclick" font="normal bold 14pt/normal &quot;Arial&quot;" width="480"/>
+        <Button id="btn_checkAlarm" taborder="8" text="Alarm CHECK" left="0" top="700" height="60" wordWrap="english" onclick="btn_checkAlarm_onclick" font="normal bold 14pt/normal &quot;Arial&quot;" width="480"/>
+        <Button id="btn_cancelAlarm" taborder="9" text="Alarm CANCEL" left="0" top="640" height="60" wordWrap="english" onclick="btn_cancelAlarm_onclick" font="normal bold 14pt/normal &quot;Arial&quot;" width="480"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[this.fn_currentTime = function()
+{
+	var dTime = new Date();
+	
+	var sCurrentTime =  dTime.getFullYear() +","
+		+ (dTime.getMonth()+1).toString().padLeft(2, "0") +","
+		+ dTime.getDate().toString().padLeft(2, "0") +","
+		+ dTime.getHours().toString().padLeft(2, "0") +","
+		+ (dTime.getMinutes()+2).toString().padLeft(2, "0") +","
+		+ dTime.getSeconds().toString().padLeft(2, "0") +"\n";
+	
+   	return sCurrentTime;	
+}
+
+
+this.SetAlarm_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	var dAfterward = 5;
+	var dTime = new Date();	
+	
+	var strDate = dTime.getFullYear() + (dTime.getMonth()+1).toString().padLeft(2, "0") + dTime.getDate().toString().padLeft(2, "0");
+	
+	this.Calendar00.set_value(strDate);
+	
+	this.spn_hour.set_value(dTime.getHours().toString().padLeft(2, "0"));
+	this.spn_min.set_value((dTime.getMinutes() + dAfterward).toString().padLeft(2, "0"));
+};
+
+
+this.SetAlarm_ondevicebuttonup = function(obj:nexacro.Form,e:nexacro.DeviceButtonEventInfo)
+{
+	//back button
+	if(e.button == 2)
+	{
+		if(this.confirm("Do you want to quit?", "EXIT", "question"))
+		{			
+			var strParams = "ACTIVITYHIDE";	
+			var objEnv = nexacro.getEnvironment();
+			objEnv.userNotify(901, strParams);
+		}
+	}
+};
+
+
+this.btn_setAlarm_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var strYear = this.Calendar00.getYear();
+	var strMonth = this.Calendar00.getMonth();
+	var strDay = this.Calendar00.getDay();
+	var strHour = this.spn_hour.value;
+	var strMin = this.spn_min.value;
+	
+    var strParams = strYear +","
+		+ strMonth +","
+		+ strDay +","
+		+ strHour +","
+		+ strMin;
+	
+	var objEnv = nexacro.getEnvironment();
+	objEnv.userNotify(101, strParams);	    
+};
+
+
+this.btn_offAlarm_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var strParams = "ALARMOFF";
+	
+	var objEnv = nexacro.getEnvironment();
+	objEnv.userNotify(102, strParams);
+};
+
+
+this.btn_cancelAlarm_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var strParams = "ALARMCANCEL";
+	
+	var objEnv = nexacro.getEnvironment();
+	objEnv.userNotify(103, strParams);	
+};
+
+
+this.btn_checkAlarm_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var strParams = "ALARMCHECK";
+	
+	var objEnv = nexacro.getEnvironment();
+	objEnv.userNotify(104, strParams);
+};
+
+
+]]></Script>
+    <Objects/>
+  </Form>
+</FDL>
