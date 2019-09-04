@@ -13,19 +13,19 @@
 	switch(arg)
 	{
 		case "ALARMON":
-			alert("[fn_callScript] ALARMON");
+			alert("ALARMON");
 			break;
 			
 		case "ALARMCALCEL":
-			alert("[fn_callScript] ALARMCANCEL");
+			alert("ALARMCANCEL");
 			break;
 			
 		case "ALARMOFF":
-			alert("[fn_callScript] ALARMOFF");
+			alert("ALARMOFF");
 			break;
 			
 		case "ALARMCHECK":
-			alert("[fn_callScript] ALARMCHECK");
+			alert("ALARMCHECK");
 			break;			
 			
 		default:
