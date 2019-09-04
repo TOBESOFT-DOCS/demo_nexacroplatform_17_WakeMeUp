@@ -2,7 +2,7 @@
 <ENV version="2.1">
   <Environment themeid="theme::default" locale="en_US">
     <ScreenDefinition>
-      <Screen id="Phone_screen" type="mobile_small"/>
+      <Screen id="Phone_screen" type="mobile_small" specifiedlocale="en_US"/>
     </ScreenDefinition>
     <Variables/>
     <Cookies/>

@@ -21,7 +21,9 @@
         <Button id="btn_cancelAlarm" taborder="9" text="Alarm CANCEL" left="0" top="640" height="60" wordWrap="english" onclick="btn_cancelAlarm_onclick" font="normal bold 14pt/normal &quot;Arial&quot;" width="480"/>
       </Layout>
     </Layouts>
-    <Script type="xscript5.1"><![CDATA[this.fn_currentTime = function()
+    <Script type="xscript5.1"><![CDATA[var objEnv = nexacro.getEnvironment();
+
+this.fn_currentTime = function()
 {
 	var dTime = new Date();
 	
@@ -57,8 +59,7 @@ this.SetAlarm_ondevicebuttonup = function(obj:nexacro.Form,e:nexacro.DeviceButto
 	{
 		if(this.confirm("Do you want to quit?", "EXIT", "question"))
 		{			
-			var strParams = "ACTIVITYHIDE";	
-			var objEnv = nexacro.getEnvironment();
+			var strParams = "ACTIVITYHIDE";				
 			objEnv.userNotify(901, strParams);
 		}
 	}
@@ -79,7 +80,6 @@ this.btn_setAlarm_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo
 		+ strHour +","
 		+ strMin;
 	
-	var objEnv = nexacro.getEnvironment();
 	objEnv.userNotify(101, strParams);	    
 };
 
@@ -88,7 +88,6 @@ this.btn_offAlarm_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo
 {
 	var strParams = "ALARMOFF";
 	
-	var objEnv = nexacro.getEnvironment();
 	objEnv.userNotify(102, strParams);
 };
 
@@ -97,7 +96,6 @@ this.btn_cancelAlarm_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventI
 {
 	var strParams = "ALARMCANCEL";
 	
-	var objEnv = nexacro.getEnvironment();
 	objEnv.userNotify(103, strParams);	
 };
 
@@ -106,7 +104,6 @@ this.btn_checkAlarm_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventIn
 {
 	var strParams = "ALARMCHECK";
 	
-	var objEnv = nexacro.getEnvironment();
 	objEnv.userNotify(104, strParams);
 };
 

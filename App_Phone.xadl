@@ -2,8 +2,8 @@
 <ADL version="2.0">
   <Application id="App_Phone" screenid="Phone_screen,Screen0,Screen1" onnotification="Application_onnotification">
     <Layout>
-      <MainFrame id="mainframe" showtitlebar="false" showstatusbar="false" width="480" height="768" titletext="FullFrame">
-        <ChildFrame id="WorkFrame" showtitlebar="false" showstatusbar="false" formurl="Base::AlarmSet.xfdl"/>
+      <MainFrame id="mainframe" showtitlebar="false" showstatusbar="false" width="480" height="768" showcascadetitletext="false" showtitleicon="false">
+        <ChildFrame id="WorkFrame" showtitlebar="false" showstatusbar="false" formurl="Base::AlarmSet.xfdl" showtitleicon="false"/>
       </MainFrame>
       <Tray id="Tray0"/>
     </Layout>
@@ -14,17 +14,6 @@
 	{
 		case "ALARMON":
 			alert("[fn_callScript] ALARMON");
-			
-			//nexacro.getApplication().this.mainframe.WorkFrame.form.함수();
-			
-			//show activity
-			/*
-			var strParams = "ACTIVITYSHOW";
-	
-			var objEnv = nexacro.getEnvironment();
-			objEnv.userNotify(901, strParams);
-			*/
-			
 			break;
 			
 		case "ALARMCALCEL":
