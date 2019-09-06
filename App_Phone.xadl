@@ -2,8 +2,8 @@
 <ADL version="2.0">
   <Application id="App_Phone" screenid="Phone_screen,Screen0,Screen1" onnotification="Application_onnotification">
     <Layout>
-      <MainFrame id="mainframe" showtitlebar="false" showstatusbar="false" width="480" height="768" showcascadetitletext="false" showtitleicon="false">
-        <ChildFrame id="WorkFrame" showtitlebar="false" showstatusbar="false" formurl="Base::AlarmSet.xfdl" showtitleicon="false"/>
+      <MainFrame id="mainframe" showtitlebar="false" showstatusbar="false" width="480" height="768" showcascadetitletext="false" showtitleicon="false" border="0px">
+        <ChildFrame id="WorkFrame" showtitlebar="false" showstatusbar="false" formurl="Base::AlarmSet.xfdl" showtitleicon="false" border="0px"/>
       </MainFrame>
       <Tray id="Tray0"/>
     </Layout>
@@ -16,7 +16,7 @@
 			alert("ALARMON");
 			break;
 			
-		case "ALARMCALCEL":
+		case "ALARMCANCEL":
 			alert("ALARMCANCEL");
 			break;
 			
@@ -29,10 +29,8 @@
 			break;			
 			
 		default:
-			alert("[fn_callScript] "+ arg);
-	
+			alert("[fn_callScript] "+ arg);	
 	}
-
 }
 
 ]]></Script>

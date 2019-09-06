@@ -1,27 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="2.0">
-  <Form id="AlarmSet" width="480" height="768" titletext="New Form" onload="SetAlarm_onload" ondevicebuttonup="SetAlarm_ondevicebuttonup">
+  <Form id="AlarmSet" width="480" height="768" titletext="New Form" onload="AlarmSet_onload" ondevicebuttonup="AlarmSet_ondevicebuttonup">
     <Layouts>
       <Layout height="768" mobileorientation="portrait" screenid="Phone_screen" width="480">
-        <Spin id="spn_hour" taborder="0" left="80" top="420" width="160" height="80" onchanged="spn_hour_onchanged" max="23" min="1" value="12" circulation="true" buttonsize="60" font="normal 32pt/normal &quot;Arial&quot;" type="normal"/>
-        <Spin id="spn_min" taborder="1" left="310" top="420" width="160" height="80" min="0" max="59" value="12" circulation="true" buttonsize="60" font="normal 32pt/normal &quot;Arial&quot;" type="normal"/>
-        <Calendar id="Calendar00" taborder="2" left="10" top="90" width="460" height="320" popuptype="center" usetrailingday="true" type="monthonly" showmonthspin="true" showyearspin="true" font="normal 18pt/normal &quot;Arial&quot;"/>
-        <Static id="stt_hour" taborder="3" text="Hour" left="10" top="430" width="120" height="60" font="normal 20pt/normal &quot;Arial&quot;"/>
-        <Static id="stt_min" taborder="4" text="Min" left="260" top="430" width="120" height="60" font="normal 20pt/normal &quot;Arial&quot;"/>
-        <Button id="btn_setAlarm" taborder="5" text="Alarm Setting" left="0" top="520" height="60" onclick="btn_setAlarm_onclick" wordWrap="english" font="normal bold 14pt/normal &quot;Arial&quot;" width="480"/>
-        <Div id="div_top" taborder="6" left="0" top="0" width="100.00%" height="80" background="#58595B" border="0px" text="">
-          <Layouts>
-            <Layout>
-              <Static id="stt_subject" taborder="1" left="0" height="100%" color="#f2f2f2" font="normal 700 20pt/normal &quot;Arial&quot;" background="" wordWrap="english" top="0" text="Wake me up before I'm late" padding="0px 0px 0px 10px" width="100%"/>
-            </Layout>
-          </Layouts>
-        </Div>
-        <Button id="btn_offAlarm" taborder="7" text="Alarm OFF" left="0" top="580" height="60" wordWrap="english" onclick="btn_offAlarm_onclick" font="normal bold 14pt/normal &quot;Arial&quot;" width="480"/>
-        <Button id="btn_checkAlarm" taborder="8" text="Alarm CHECK" left="0" top="700" height="60" wordWrap="english" onclick="btn_checkAlarm_onclick" font="normal bold 14pt/normal &quot;Arial&quot;" width="480"/>
-        <Button id="btn_cancelAlarm" taborder="9" text="Alarm CANCEL" left="0" top="640" height="60" wordWrap="english" onclick="btn_cancelAlarm_onclick" font="normal bold 14pt/normal &quot;Arial&quot;" width="480"/>
+        <Spin id="spn_hour" taborder="5" left="80" top="420" width="160" height="80" onchanged="spn_hour_onchanged" max="23" min="0" value="12" buttonsize="60" circulation="true" font="normal 32pt/normal &quot;Arial&quot;"/>
+        <Spin id="spn_min" taborder="6" left="310" top="420" width="160" height="80" min="0" max="59" value="12" circulation="true" buttonsize="60" font="normal 32pt/normal &quot;Arial&quot;" type="normal"/>
+        <Calendar id="Calendar00" taborder="4" left="10" top="90" width="460" height="320" popuptype="center" usetrailingday="true" type="monthonly"/>
+        <Static id="stt_hour" taborder="7" text="Hour" left="10" top="430" width="120" height="60" font="normal 20pt/normal &quot;Arial&quot;"/>
+        <Static id="stt_min" taborder="8" text="Min" left="260" top="430" width="120" height="60" font="normal 20pt/normal &quot;Arial&quot;"/>
+        <Button id="btn_setAlarm" taborder="0" text="Alarm SET" left="0" top="520" height="60" onclick="btn_setAlarm_onclick" wordWrap="english" font="normal bold 14pt/normal &quot;Arial&quot;" width="480"/>
+        <Button id="btn_offAlarm" taborder="1" text="Alarm OFF" left="0" top="580" height="60" wordWrap="english" onclick="btn_offAlarm_onclick" font="normal bold 14pt/normal &quot;Arial&quot;" width="480"/>
+        <Button id="btn_checkAlarm" taborder="3" text="Alarm CHECK" left="0" top="700" height="60" wordWrap="english" onclick="btn_checkAlarm_onclick" font="normal bold 14pt/normal &quot;Arial&quot;" width="480"/>
+        <Button id="btn_cancelAlarm" taborder="2" text="Alarm CANCEL" left="0" top="640" height="60" wordWrap="english" onclick="btn_cancelAlarm_onclick" font="normal bold 14pt/normal &quot;Arial&quot;" width="480"/>
+        <Static id="stt_subject" taborder="9" left="0" height="10.42%" color="#f2f2f2" font="normal 700 20pt/normal &quot;Arial&quot;" background="#58595B" wordWrap="english" top="0" text="Wake me up before I'm late" padding="0px 0px 0px 10px" width="100.00%"/>
       </Layout>
     </Layouts>
     <Script type="xscript5.1"><![CDATA[var objEnv = nexacro.getEnvironment();
+var objApp = nexacro.getApplication();
+
 
 this.fn_currentTime = function()
 {
@@ -38,9 +34,8 @@ this.fn_currentTime = function()
 }
 
 
-this.SetAlarm_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+this.AlarmSet_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
 {
-	var dAfterward = 5;
 	var dTime = new Date();	
 	
 	var strDate = dTime.getFullYear() + (dTime.getMonth()+1).toString().padLeft(2, "0") + dTime.getDate().toString().padLeft(2, "0");
@@ -48,11 +43,11 @@ this.SetAlarm_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
 	this.Calendar00.set_value(strDate);
 	
 	this.spn_hour.set_value(dTime.getHours().toString().padLeft(2, "0"));
-	this.spn_min.set_value((dTime.getMinutes() + dAfterward).toString().padLeft(2, "0"));
+	this.spn_min.set_value((dTime.getMinutes()).toString().padLeft(2, "0"));
 };
 
 
-this.SetAlarm_ondevicebuttonup = function(obj:nexacro.Form,e:nexacro.DeviceButtonEventInfo)
+this.AlarmSet_ondevicebuttonup = function(obj:nexacro.Form,e:nexacro.DeviceButtonEventInfo)
 {
 	//back button
 	if(e.button == 2)
@@ -61,6 +56,7 @@ this.SetAlarm_ondevicebuttonup = function(obj:nexacro.Form,e:nexacro.DeviceButto
 		{			
 			var strParams = "ACTIVITYHIDE";				
 			objEnv.userNotify(901, strParams);
+			trace("EXIT");
 		}
 	}
 };
@@ -80,15 +76,17 @@ this.btn_setAlarm_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo
 		+ strHour +","
 		+ strMin;
 	
-	objEnv.userNotify(101, strParams);	    
+	objEnv.userNotify(101, strParams);	
+	trace(strParams);
 };
 
 
 this.btn_offAlarm_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
-	var strParams = "ALARMOFF";
+	var strParams = "ALARMOFF";	
 	
 	objEnv.userNotify(102, strParams);
+	trace(strParams);
 };
 
 
@@ -96,7 +94,8 @@ this.btn_cancelAlarm_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventI
 {
 	var strParams = "ALARMCANCEL";
 	
-	objEnv.userNotify(103, strParams);	
+	objEnv.userNotify(103, strParams);
+	trace(strParams);
 };
 
 
@@ -105,10 +104,8 @@ this.btn_checkAlarm_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventIn
 	var strParams = "ALARMCHECK";
 	
 	objEnv.userNotify(104, strParams);
-};
-
-
-]]></Script>
+	trace(strParams);
+};]]></Script>
     <Objects/>
   </Form>
 </FDL>
