@@ -8,29 +8,36 @@
       <Tray id="Tray0"/>
     </Layout>
   </Application>
-  <Script type="xscript5.1"><![CDATA[this.fn_callScript = function(arg)
+  <Script type="xscript5.1"><![CDATA[var objEnv = nexacro.getEnvironment();
+
+this.fn_callScript = function(strCallID, strMessage)
 {
-	switch(arg)
+	switch(strCallID)
 	{
-		case "ALARMON":
-			alert("ALARMON");
-			break;
-			
-		case "ALARMCANCEL":
-			alert("ALARMCANCEL");
+		case "ALARMON":				
+			objEnv.userNotify(1001, strMessage);
 			break;
 			
 		case "ALARMOFF":
-			alert("ALARMOFF");
+			objEnv.userNotify(1001, "Alarm has been stopped");				
 			break;
 			
-		case "ALARMCHECK":
-			alert("ALARMCHECK");
+		case "ALARMCANCEL":
+			objEnv.userNotify(1001, "Alarm has been cancelled");	
 			break;			
 			
+		case "ALARMCHECK":
+			objEnv.userNotify(1001, "Alarm is found");	
+			break;			
+			
+		case "NOALARM":
+			objEnv.userNotify(1001, "No alarm is found");
+			break;	
+			
 		default:
-			alert("[fn_callScript] "+ arg);	
-	}
+			trace("[fn_callScript] strCallID: "+ strCallID +" strMessage: "+ strMessage);
+	}	
+
 }
 
 ]]></Script>

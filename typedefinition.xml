@@ -46,10 +46,10 @@
   <Update>
     <Os name="Android" url="./" timeout="30" retry="3" autoupdate="auto" updatetype="update">
       <Version name="common">
-        <Resource type="Engine" file="WakeMeUp.apk" version="0.0.0.1" targetpath="./"/>
-        <Resource type="Module" file="nexacro17lib.zip" version="0.0.0.1" targetpath="./" description=""/>
-        <Resource type="File" file="Archive00.xzip" version="0.0.0.1" targetpath="./" description=""/>
-        <Resource type="Resource" file="Resource.zip" version="0.0.0.1" targetpath="./" description=""/>
+        <Resource type="Engine" file="WakeMeUp.apk" version="17.0.0.2300.1" targetpath="./"/>
+        <Resource type="Module" file="nexacro17lib.zip" version="17.0.0.2300.1" targetpath="./" description=""/>
+        <Resource type="File" file="Archive00.xzip" version="17.0.0.2300.1" targetpath="./" description=""/>
+        <Resource type="Resource" file="Resource.zip" version="17.0.0.2300.1" targetpath="./" description=""/>
       </Version>
     </Os>
     <Os name="iOS" url="./" timeout="30" retry="3" autoupdate="auto" updatetype="update">
