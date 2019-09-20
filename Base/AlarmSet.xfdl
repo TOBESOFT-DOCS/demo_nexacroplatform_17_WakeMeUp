@@ -16,7 +16,6 @@
       </Layout>
     </Layouts>
     <Script type="xscript5.1"><![CDATA[var objEnv = nexacro.getEnvironment();
-var objApp = nexacro.getApplication();
 
 
 this.fn_currentTime = function()
